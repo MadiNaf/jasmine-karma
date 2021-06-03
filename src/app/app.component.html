@@ -1,0 +1,82 @@
+<router-outlet></router-outlet>
+
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(1)">1</button>
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(2)">2</button>
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(3)">3</button>
+        </div>
+
+        <div class="col-12">
+          <button id="four" class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(4)">4</button>
+          <button id="five" class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(5)">5</button>
+          <button id="six" class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(6)">6</button>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(7)">7</button>
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(8)">8</button>
+          <button class="btn btn-outline-info btn-lg" (click)="onClickCurrenteValue(9)">9</button>
+        </div>
+
+        <div class="col-12">
+          <button id="delete-value" class="btn btn-danger btn-lg" (click)="resetCurrentValue()">X</button>
+          <button class="btn btn-outline-info btn-lg" (change)="onClickCurrenteValue(0)">0</button>
+          <button id="add-value" class="btn btn-success btn-lg" (click)="addCurrentValue()">V</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-8">
+      <div class="row">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button class="btn">Your array : </button>
+            <button
+              *ngFor="let unsortedValue of unSortedArray"
+              type="button"
+              class="btn btn-outline-info btn-lg">
+              {{unsortedValue}}
+            </button>
+          </div>
+
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-info" (click)="sortFinalArray()">Sort</button>
+            <button type="button" class="btn btn-warning" (click)="deleteLastValue()">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="resetUnsortedArray()">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button class="btn">sorted array : </button>
+            <button
+              *ngFor="let sortedValue of sortedArray"
+              type="button"
+              class="btn btn-info btn-lg">
+              {{sortedValue}}
+            </button>
+          </div>
+
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-outline-danger" (click)="resetSortedArray()">Reset</button>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <button class="btn btn-light">current value : {{currentValue}}</button>
+    </div>
+  </div>
+</div>
+
+
