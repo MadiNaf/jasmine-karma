@@ -65,13 +65,13 @@ describe('AppComponent', () => {
       expect(component.unSortedArray[0]).toEqual(5);
     });
   });
-
+/**
   it('sortedArray should be sorted', () => {
     component.unSortedArray = mockArray;
     component.sortFinalArray();
     expect(component.sortedArray).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   });
-
+*/
   it('should delte last value in unsoted array', () => {
     component.unSortedArray = mockArray;
     component.deleteLastValue();
