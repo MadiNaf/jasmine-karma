@@ -7,6 +7,7 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
   const mockArray: number[] = [4, 9, 7, 2, 1, 3, 5, 6, 8];
+  const mockSorted: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -57,21 +58,15 @@ describe('AppComponent', () => {
     const buttonFive = fixture.debugElement.nativeElement.querySelector('#five');
     buttonFive.click();
     component.unSortedArray = [];
-
-    fixture.whenStable().then(() => {
-      expect(component.addCurrentValue()).toHaveBeenCalled();
-      expect(component.currentValue).toEqual(5);
-      expect(component.unSortedArray.length).toEqual(1);
-      expect(component.unSortedArray[0]).toEqual(5);
-    });
+    expect(component.onClickCurrenteValue).toHaveBeenCalled();
   });
-/**
+
   it('sortedArray should be sorted', () => {
     component.unSortedArray = mockArray;
     component.sortFinalArray();
-    expect(component.sortedArray).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(component.sortedArray).toEqual(mockSorted);
   });
-*/
+
   it('should delte last value in unsoted array', () => {
     component.unSortedArray = mockArray;
     component.deleteLastValue();
