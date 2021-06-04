@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public currentValue = 0;
   public unSortedArray: number[] = [];
-  public sortedArray: number[] = [];
+  public ascendingArray: number[] = [];
+  public descendingArray: number[] = [];
 
   public addCurrentValue() {
     this.unSortedArray.push(this.currentValue);
@@ -16,9 +17,16 @@ export class AppComponent {
 
   public onClickCurrenteValue(value: number) { this.currentValue = value; }
 
-  public sortFinalArray() {
-    this.sortedArray = this.unSortedArray;
-    this.sortedArray.sort( ((a, b) => a - b));
+  // sort in ascending order
+  public sortInAscendingOrder() {
+    this.ascendingArray = this.unSortedArray;
+    this.ascendingArray.sort( ((a, b) => a - b));
+  }
+
+  // sort in descending order
+  public async sortInDescendingOrder() {
+    this.descendingArray = this.unSortedArray;
+    await this.descendingArray.sort( (a, b) => (b - a));
   }
 
   public deleteLastValue() {
@@ -27,6 +35,7 @@ export class AppComponent {
   }
   public resetCurrentValue() { this.currentValue = 0; }
   public resetUnsortedArray() { this.unSortedArray = []; }
-  public resetSortedArray() { this.sortedArray = []; }
+  public resetAscendingArray() { this.ascendingArray = []; }
+  public resetDescendingArray() { this.descendingArray = []; }
 
 }

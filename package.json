@@ -9,7 +9,7 @@
     "build:ci": "npm run clean && npm run test && npm run build",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
     "test:watch": "ng test",
-    "test:cov": "ng test --code-coverage",
+    "test:cov": "ng test --code-coverage --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

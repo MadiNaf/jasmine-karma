@@ -7,7 +7,6 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
   const mockArray: number[] = [4, 9, 7, 2, 1, 3, 5, 6, 8];
-  const mockSorted: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -37,7 +36,7 @@ describe('AppComponent', () => {
     expect(component.unSortedArray.length).toEqual(0);
   });
   it('should return 0 for sortedArray.lenght', () => {
-    expect(component.sortedArray.length).toEqual(0);
+    expect(component.ascendingArray.length).toEqual(0);
   });
 
   it('should return 1 for sortedArray.lenght', () => {
@@ -61,13 +60,7 @@ describe('AppComponent', () => {
     expect(component.onClickCurrenteValue).toHaveBeenCalled();
   });
 
-  it('sortedArray should be sorted', () => {
-    component.unSortedArray = mockArray;
-    component.sortFinalArray();
-    expect(component.sortedArray).toEqual(mockSorted);
-  });
-
-  it('should delte last value in unsoted array', () => {
+  it('should delete last value in unsoted array', () => {
     component.unSortedArray = mockArray;
     component.deleteLastValue();
     expect(component.unSortedArray.length).toEqual(8);
@@ -85,9 +78,59 @@ describe('AppComponent', () => {
     expect(component.unSortedArray.length).toEqual(0);
   });
 
-  it('should reset sorted array', () => {
-    component.sortedArray = [1, 2, 3];
-    component.resetSortedArray();
-    expect(component.sortedArray.length).toEqual(0);
+  it('should reset ascending array', () => {
+    component.ascendingArray = mockArray;
+    component.resetAscendingArray();
+    expect(component.ascendingArray.length).toEqual(0);
   });
+
+  it( 'should reset descending array', () => {
+    component.descendingArray = mockArray;
+    component.resetDescendingArray();
+    expect(component.descendingArray.length).toEqual(0);
+  });
+
+  function arrayHasNineValue() {
+
+  }
+});
+
+
+
+describe('AppComponent test sort method', () => {
+
+  let fixture2: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  const mockArray: number[] = [4, 9, 7, 2, 1, 3, 5, 6, 8];
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents().then( () => {
+      fixture2 = TestBed.createComponent(AppComponent);
+      component = fixture2.componentInstance;
+    });
+
+  }));
+
+  it('should sort ascending array in ascending order', () => {
+    component.unSortedArray = mockArray;
+    component.sortInAscendingOrder();
+    const index = Math.floor( Math.random() * (9));
+    expect(component.ascendingArray[index]).toEqual(index + 1);
+  });
+
+  it('should sort descending array in descending order', () => {
+    component.unSortedArray = mockArray;
+    component.sortInDescendingOrder();
+    const index2 = Math.floor( Math.random() * (9));
+    expect(component.descendingArray[index2]).toEqual(9 - index2);
+  });
+
+
 });

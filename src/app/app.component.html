@@ -36,36 +36,43 @@
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group me-2" role="group" aria-label="First group">
             <button class="btn">Your array : </button>
-            <button
-              *ngFor="let unsortedValue of unSortedArray"
-              type="button"
-              class="btn btn-outline-info btn-lg">
-              {{unsortedValue}}
-            </button>
+            <p  *ngFor="let value of unSortedArray">
+              <span>{{ value }}</span>
+            </p>
+
           </div>
 
           <div class="btn-group" role="group" aria-label="Third group">
-            <button type="button" class="btn btn-info" (click)="sortFinalArray()">Sort</button>
+            <button type="button" class="btn btn-info" (click)="sortInAscendingOrder()">ascending sort</button>
+            <button type="button" class="btn btn-primary" (click)="sortInDescendingOrder()">descending sort</button>
             <button type="button" class="btn btn-warning" (click)="deleteLastValue()">Delete</button>
             <button type="button" class="btn btn-danger" (click)="resetUnsortedArray()">Reset</button>
           </div>
         </div>
       </div>
 
-      <div class="row mt-5">
+      <div class="row mt-4">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group me-2" role="group" aria-label="First group">
-            <button class="btn">sorted array : </button>
-            <button
-              *ngFor="let sortedValue of sortedArray"
-              type="button"
-              class="btn btn-info btn-lg">
-              {{sortedValue}}
-            </button>
+            <button class="btn">ascending array : </button>
+            <h3>{{ ascendingArray }}</h3>
           </div>
 
           <div class="btn-group" role="group" aria-label="Third group">
-            <button type="button" class="btn btn-outline-danger" (click)="resetSortedArray()">Reset</button>
+            <button type="button" class="btn btn-outline-danger" (click)="resetAscendingArray()">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button class="btn">descending array : </button>
+            <h3> {{ descendingArray }}</h3>
+          </div>
+
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-outline-danger" (click)="resetDescendingArray()">Reset</button>
           </div>
         </div>
       </div>
